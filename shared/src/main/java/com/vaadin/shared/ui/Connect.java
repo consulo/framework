@@ -15,12 +15,12 @@
  */
 package com.vaadin.shared.ui;
 
+import com.vaadin.shared.Connector;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import com.vaadin.shared.Connector;
 
 /**
  * Annotation defining the server side connector that this ClientSideConnector
@@ -40,7 +40,12 @@ public @interface Connect {
     /**
      * @return the server side counterpart for the annotated component connector
      */
-    Class<? extends Connector> value();
+    Class<? extends Connector> value() default Connector.class;
+
+    /**
+     * @return the server side counterpart for the annotated component connector in string format (without dependency to server core)
+     */
+    String canonicalName() default "";
 
     /**
      * Depending on the used WidgetMap generator, these optional hints may be

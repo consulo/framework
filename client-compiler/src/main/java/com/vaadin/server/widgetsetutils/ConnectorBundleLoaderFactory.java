@@ -15,20 +15,6 @@
  */
 package com.vaadin.server.widgetsetutils;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.core.ext.Generator;
@@ -36,40 +22,21 @@ import com.google.gwt.core.ext.GeneratorContext;
 import com.google.gwt.core.ext.TreeLogger;
 import com.google.gwt.core.ext.TreeLogger.Type;
 import com.google.gwt.core.ext.UnableToCompleteException;
-import com.google.gwt.core.ext.typeinfo.JClassType;
-import com.google.gwt.core.ext.typeinfo.JMethod;
-import com.google.gwt.core.ext.typeinfo.JParameterizedType;
-import com.google.gwt.core.ext.typeinfo.JPrimitiveType;
-import com.google.gwt.core.ext.typeinfo.JType;
-import com.google.gwt.core.ext.typeinfo.NotFoundException;
-import com.google.gwt.core.ext.typeinfo.TypeOracle;
+import com.google.gwt.core.ext.typeinfo.*;
 import com.google.gwt.user.rebind.ClassSourceFileComposerFactory;
 import com.google.gwt.user.rebind.SourceWriter;
 import com.vaadin.client.JsArrayObject;
 import com.vaadin.client.ServerConnector;
 import com.vaadin.client.annotations.OnStateChange;
 import com.vaadin.client.communication.JsonDecoder;
-import com.vaadin.client.metadata.ConnectorBundleLoader;
+import com.vaadin.client.metadata.*;
 import com.vaadin.client.metadata.ConnectorBundleLoader.CValUiInfo;
-import com.vaadin.client.metadata.InvokationHandler;
-import com.vaadin.client.metadata.OnStateChangeMethod;
-import com.vaadin.client.metadata.ProxyHandler;
-import com.vaadin.client.metadata.TypeData;
-import com.vaadin.client.metadata.TypeDataStore;
 import com.vaadin.client.metadata.TypeDataStore.MethodAttribute;
 import com.vaadin.client.ui.UnknownComponentConnector;
 import com.vaadin.client.ui.UnknownExtensionConnector;
-import com.vaadin.server.widgetsetutils.metadata.ClientRpcVisitor;
-import com.vaadin.server.widgetsetutils.metadata.ConnectorBundle;
-import com.vaadin.server.widgetsetutils.metadata.ConnectorInitVisitor;
-import com.vaadin.server.widgetsetutils.metadata.GeneratedSerializer;
-import com.vaadin.server.widgetsetutils.metadata.OnStateChangeVisitor;
+import com.vaadin.server.widgetsetutils.metadata.*;
 import com.vaadin.server.widgetsetutils.metadata.Property;
-import com.vaadin.server.widgetsetutils.metadata.RendererVisitor;
-import com.vaadin.server.widgetsetutils.metadata.ServerRpcVisitor;
-import com.vaadin.server.widgetsetutils.metadata.StateInitVisitor;
-import com.vaadin.server.widgetsetutils.metadata.TypeVisitor;
-import com.vaadin.server.widgetsetutils.metadata.WidgetInitVisitor;
+import com.vaadin.shared.Connector;
 import com.vaadin.shared.annotations.DelegateToWidget;
 import com.vaadin.shared.annotations.NoLayout;
 import com.vaadin.shared.communication.ClientRpc;
@@ -80,6 +47,10 @@ import com.vaadin.tools.CvalAddonsChecker;
 import com.vaadin.tools.CvalChecker;
 import com.vaadin.tools.CvalChecker.InvalidCvalException;
 import com.vaadin.tools.ReportUsage;
+
+import java.io.PrintWriter;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class ConnectorBundleLoaderFactory extends Generator {
     /**
@@ -1213,7 +1184,15 @@ public class ConnectorBundleLoaderFactory extends Generator {
                 continue;
             }
 
-            String identifier = connectAnnotation.value().getCanonicalName();
+            String identifier = connectAnnotation.canonicalName();
+            if(identifier.isEmpty()) {
+                identifier = connectAnnotation.value().getCanonicalName();
+            }
+
+            if(identifier.equals(Connector.class.getCanonicalName())) {
+                logger.log(Type.ERROR, "Undefined connector type in " + type.getQualifiedSourceName() + ". Use @Connect.value() for set connector class");
+                throw new UnableToCompleteException();
+            }
 
             JClassType previousMapping = mappings.put(identifier, type);
             if (previousMapping != null) {

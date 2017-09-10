@@ -28,9 +28,11 @@ public class ConnectorInitVisitor extends TypeVisitor {
             ConnectorBundle bundle) throws UnableToCompleteException {
         Connect connectAnnotation = type.getAnnotation(Connect.class);
         if (connectAnnotation != null) {
-            logger.log(Type.INFO, type.getName() + " will be in the "
-                    + bundle.getName().replaceAll("^_*", "") + " bundle");
-            String identifier = connectAnnotation.value().getCanonicalName();
+            logger.log(Type.INFO, type.getName() + " will be in the " + bundle.getName().replaceAll("^_*", "") + " bundle");
+            String identifier = connectAnnotation.canonicalName();
+            if(identifier.isEmpty()) {
+                identifier = connectAnnotation.value().getCanonicalName();
+            }
 
             bundle.setIdentifier(type, identifier);
             bundle.setNeedsGwtConstructor(type);
