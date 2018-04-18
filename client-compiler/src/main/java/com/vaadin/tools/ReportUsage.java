@@ -15,8 +15,17 @@
  */
 package com.vaadin.tools;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.UUID;
+import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
+import java.util.logging.Logger;
+
+import org.apache.commons.io.IOUtils;
 
 public class ReportUsage {
 
@@ -52,10 +61,73 @@ public class ReportUsage {
     }
 
     public static FutureTask<Void> checkForUpdatesInBackgroundThread() {
-        return null;
+        FutureTask<Void> task = new FutureTask<>(new Callable<Void>() {
+            @Override
+            public Void call() throws Exception {
+                ReportUsage.report();
+                return null;
+            }
+        });
+        Thread checkerThread = new Thread(task, "Vaadin Update Checker");
+        checkerThread.setDaemon(true);
+        checkerThread.start();
+        return task;
     }
 
     public static void report() {
+    }
+
+    private static void doHttpGet(String userAgent, String url) {
+        Throwable caught;
+        InputStream is = null;
+        try {
+            URL urlToGet = new URL(url);
+            URLConnection conn = urlToGet.openConnection();
+            conn.setRequestProperty(USER_AGENT, userAgent);
+            is = conn.getInputStream();
+            // TODO use the results
+            IOUtils.toByteArray(is);
+            return;
+        } catch (MalformedURLException e) {
+            caught = e;
+        } catch (IOException e) {
+            caught = e;
+        } finally {
+            IOUtils.closeQuietly(is);
+        }
+
+        Logger.getLogger(ReportUsage.class.getName())
+                .fine("Caught an exception while executing HTTP query: "
+                        + caught.getMessage());
+    }
+
+    private static String makeUserAgent() {
+        String userAgent = USER_AGENT_BASE;
+        StringBuilder extra = new StringBuilder();
+        appendUserAgentProperty(extra, "java.vendor");
+        appendUserAgentProperty(extra, "java.version");
+        appendUserAgentProperty(extra, "os.arch");
+        appendUserAgentProperty(extra, "os.name");
+        appendUserAgentProperty(extra, "os.version");
+
+        if (extra.length() > 0) {
+            userAgent += " (" + extra.toString() + ")";
+        }
+
+        return userAgent.toString();
+    }
+
+    private static void appendUserAgentProperty(StringBuilder sb,
+            String propName) {
+        String propValue = System.getProperty(propName);
+        if (propValue != null) {
+            if (sb.length() > 0) {
+                sb.append(';').append(' ');
+            }
+            sb.append(propName);
+            sb.append('=');
+            sb.append(propValue);
+        }
     }
 
     private static String loadFirstLaunch() {
