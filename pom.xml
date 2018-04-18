@@ -556,7 +556,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
                 <executions>
@@ -578,7 +578,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
             <!-- Unpacked Dependencies as resource -->
             <plugin>
