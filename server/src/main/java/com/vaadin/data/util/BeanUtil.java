@@ -15,10 +15,12 @@
  */
 package com.vaadin.data.util;
 
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
+import com.vaadin.data.validator.BeanValidator;
+import kava.beans.BeanInfo;
+import kava.beans.IntrospectionException;
+import kava.beans.Introspector;
+import kava.beans.PropertyDescriptor;
+
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -28,8 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.vaadin.data.validator.BeanValidator;
 
 /**
  * Utility class for Java Beans information access.
@@ -53,7 +53,7 @@ public final class BeanUtil implements Serializable {
      * to work correctly.
      * <p>
      * NOTE : This utility method relies on introspection (and returns
-     * PropertyDescriptor) which is a part of java.beans package. The latter
+     * PropertyDescriptor) which is a part of kava.beans package. The latter
      * package could require bigger JDK in the future (with Java 9+). So it may
      * be changed in the future.
      * <p>

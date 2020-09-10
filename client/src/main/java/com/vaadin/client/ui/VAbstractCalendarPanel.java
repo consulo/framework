@@ -2132,7 +2132,8 @@ public abstract class VAbstractCalendarPanel<R extends Enum<R>>
      */
     public void setRangeEnd(String newRangeEnd) {
         if (!SharedUtil.equals(rangeEnd, newRangeEnd)) {
-            // Dates with year 10000 or more has + prefix, which is not compatible
+            // Dates with year 10000 or more has + prefix, which is not
+            // compatible
             // with format returned by dateStrResolution method
             if (newRangeEnd.startsWith("+")) {
                 rangeEnd = newRangeEnd.substring(1);

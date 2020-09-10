@@ -56,7 +56,8 @@ public class DateFieldFaultyInputNotValidTest extends SingleBrowserTest {
                 $(NotificationElement.class).first().getText());
         $(NotificationElement.class).first().close();
 
-        dateFieldText.sendKeys(LocalDate.now().minusDays(7).toString(), Keys.ENTER);
+        dateFieldText.sendKeys(LocalDate.now().minusDays(7).toString(),
+                Keys.ENTER);
 
         $(ButtonElement.class).first().click();
         assertEquals("Last week should not be ok", "Fail",

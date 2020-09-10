@@ -351,7 +351,7 @@ public class VTwinColSelect extends Composite implements MultiSelectWidget,
             listBox.setItemSelected(i, isSelected);
             if (isSelected) {
                 // Ensure that last selected item is visible
-                scrollToView(listBox,i);
+                scrollToView(listBox, i);
             }
         }
         // remove extra
@@ -364,9 +364,10 @@ public class VTwinColSelect extends Composite implements MultiSelectWidget,
         if (scheduledScrollToItem == -1) {
             scheduledScrollToItem = i;
             Scheduler.get().scheduleDeferred(() -> {
-                 Element el = (Element) listBox.getElement().getChild(scheduledScrollToItem);
-                 el.scrollIntoView();
-                 scheduledScrollToItem = -1;
+                Element el = (Element) listBox.getElement()
+                        .getChild(scheduledScrollToItem);
+                el.scrollIntoView();
+                scheduledScrollToItem = -1;
             });
         } else {
             scheduledScrollToItem = i;

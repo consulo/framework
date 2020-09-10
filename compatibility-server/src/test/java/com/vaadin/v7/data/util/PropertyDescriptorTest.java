@@ -1,19 +1,18 @@
 package com.vaadin.v7.data.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import com.vaadin.v7.data.Property;
+import com.vaadin.v7.data.util.NestedMethodPropertyTest.Person;
+import kava.beans.Introspector;
+import kava.beans.PropertyDescriptor;
+import org.junit.Test;
 
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.junit.Test;
-
-import com.vaadin.v7.data.Property;
-import com.vaadin.v7.data.util.NestedMethodPropertyTest.Person;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PropertyDescriptorTest {
 

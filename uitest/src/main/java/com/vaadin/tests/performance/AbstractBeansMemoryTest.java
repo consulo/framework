@@ -1,5 +1,13 @@
 package com.vaadin.tests.performance;
 
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.tests.data.bean.Address;
+import com.vaadin.tests.data.bean.Country;
+import com.vaadin.tests.data.bean.Person;
+import com.vaadin.tests.data.bean.Sex;
+import com.vaadin.ui.*;
+import com.vaadin.ui.MenuBar.MenuItem;
+
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -8,23 +16,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.tests.data.bean.Address;
-import com.vaadin.tests.data.bean.Country;
-import com.vaadin.tests.data.bean.Person;
-import com.vaadin.tests.data.bean.Sex;
-import com.vaadin.ui.AbstractComponent;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.HasComponents;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.MenuBar;
-import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
-import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
 /**
  * @author Vaadin Ltd
@@ -140,10 +131,14 @@ public abstract class AbstractBeansMemoryTest<T extends AbstractComponent>
 
         HasComponents container = component.getParent();
         setParent(component, null);
-        memoryLabel.setValue(
-                String.valueOf(ObjectSizeCalculator.getObjectSize(component)));
+        memoryLabel.setValue(String.valueOf(getObjectSize(component)));
 
         setParent(component, container);
+    }
+
+    private int getObjectSize(Component component) {
+        // FIXME [VISTALL] dummy
+        return 4;
     }
 
     private void setParent(Component component, Component parent) {

@@ -39,10 +39,10 @@ public class DateTimeService {
 
     private static int[] maxDaysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30,
             31, 30, 31 };
-    private int[] yearDays = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273,
-            304, 334 };
+    private int[] yearDays = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304,
+            334 };
     private int[] leapYearDays = { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274,
-            305, 335};
+            305, 335 };
 
     private static final long MILLISECONDS_PER_DAY = 24 * 3600 * 1000;
 
@@ -397,24 +397,23 @@ public class DateTimeService {
     }
 
     /*
-     * Calculate number of the week in the year based on Date
-     * Note, support for "ww" is missing GWT DateTimeFormat
-     * and java.util.Calendar is not supported in GWT
-     * Hence DIY method needed
+     * Calculate number of the week in the year based on Date Note, support for
+     * "ww" is missing GWT DateTimeFormat and java.util.Calendar is not
+     * supported in GWT Hence DIY method needed
      */
     private String getWeek(Date date) {
-        int year = date.getYear()+1900;
+        int year = date.getYear() + 1900;
         int month = date.getMonth();
-        int day = date.getDate()+1;
+        int day = date.getDate() + 1;
         int weekDay = date.getDay();
-        if (weekDay == 6) { 
+        if (weekDay == 6) {
             weekDay = 0;
         } else {
-           weekDay = weekDay - 1;
+            weekDay = weekDay - 1;
         }
         boolean leap = false;
         if (((year % 4) == 0) && (((year % 100) != 0) || ((year % 400) == 0))) {
-           leap = true;
+            leap = true;
         }
         int week;
         if (leap) {
@@ -422,7 +421,7 @@ public class DateTimeService {
         } else {
             week = countWeek(yearDays, month, day, weekDay);
         }
-        return ""+week;
+        return "" + week;
     }
 
     private int countWeek(int[] days, int month, int day, int weekDay) {

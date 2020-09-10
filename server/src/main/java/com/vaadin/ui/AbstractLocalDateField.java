@@ -171,19 +171,22 @@ public abstract class AbstractLocalDateField
     protected Result<LocalDate> handleUnparsableDateString(String dateString) {
         // Handle possible week number, which cannot be parsed client side due
         // limitations in GWT
-        if (this.getDateFormat() != null && this.getDateFormat().contains("w")) {
+        if (this.getDateFormat() != null
+                && this.getDateFormat().contains("w")) {
             Date parsedDate;
-            SimpleDateFormat df = new SimpleDateFormat(this.getDateFormat(),this.getLocale());
+            SimpleDateFormat df = new SimpleDateFormat(this.getDateFormat(),
+                    this.getLocale());
             try {
                 parsedDate = df.parse(dateString);
             } catch (ParseException e) {
                 return super.handleUnparsableDateString(dateString);
             }
             ZoneId zi = this.getZoneId();
-            if (zi ==  null) {
+            if (zi == null) {
                 zi = ZoneId.systemDefault();
             }
-            LocalDate date = Instant.ofEpochMilli(parsedDate.getTime()).atZone(zi).toLocalDate();
+            LocalDate date = Instant.ofEpochMilli(parsedDate.getTime())
+                    .atZone(zi).toLocalDate();
             return Result.ok(date);
         } else {
             return super.handleUnparsableDateString(dateString);

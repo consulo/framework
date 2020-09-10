@@ -89,6 +89,14 @@
             </snapshots>
         </repository>
         <repository>
+            <id>consulo</id>
+            <url>https://maven.consulo.io/repository/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
             <id>vaadin-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
             <releases>
@@ -594,7 +602,7 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
                 <executions>
@@ -616,7 +624,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>  -->
 
             <!-- Unpacked Dependencies as resource -->
             <plugin>

@@ -15,19 +15,13 @@
  */
 package com.vaadin.ui.declarative;
 
-import java.beans.IntrospectionException;
+import com.vaadin.ui.Component;
+import kava.beans.IntrospectionException;
+
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
-
-import com.vaadin.ui.Component;
 
 /**
  * Binder utility that binds member fields of a design class instance to given

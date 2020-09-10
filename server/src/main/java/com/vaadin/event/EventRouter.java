@@ -110,11 +110,11 @@ public class EventRouter implements MethodEventSource {
      * For more information on the inheritable event mechanism see the
      * {@link com.vaadin.event com.vaadin.event package documentation}.
      * </p>
-     * 
+     *
      * @deprecated As of 8.12. Use
      *             {@link #addListener(Class, SerializableEventListener, Method, String, SharedState)}
      *             instead
-     * 
+     *
      * @param eventType
      *            the type of the listened event. Events of this type or its
      *            subclasses activate the listener.

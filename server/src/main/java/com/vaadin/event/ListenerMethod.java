@@ -171,7 +171,8 @@ public class ListenerMethod implements EventListener, Serializable {
      *            will not be passed to the trigger method, though it is still
      *            called.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>target</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>target</code>.
      */
     @Deprecated
     public ListenerMethod(Class<?> eventType, Object target, Method method,
@@ -236,7 +237,8 @@ public class ListenerMethod implements EventListener, Serializable {
      *            will not be passed to the trigger method, though it is still
      *            called.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>target</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>target</code>.
      */
     public ListenerMethod(Class<?> eventType,
             SerializableEventListener listener, Method method,
@@ -377,7 +379,8 @@ public class ListenerMethod implements EventListener, Serializable {
      * @param arguments
      *            the arguments to be passed to the trigger method.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>target</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>target</code>.
      */
     @Deprecated
     public ListenerMethod(Class<?> eventType, Object target, Method method,
@@ -420,7 +423,8 @@ public class ListenerMethod implements EventListener, Serializable {
      * @param arguments
      *            the arguments to be passed to the trigger method.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>target</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>target</code>.
      */
     public ListenerMethod(Class<?> eventType,
             SerializableEventListener listener, Method method,
@@ -534,7 +538,8 @@ public class ListenerMethod implements EventListener, Serializable {
      * @param method
      *            the trigger method.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>object</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>object</code>.
      */
     @Deprecated
     public ListenerMethod(Class<?> eventType, Object target, Method method)
@@ -586,7 +591,8 @@ public class ListenerMethod implements EventListener, Serializable {
      * @param method
      *            the trigger method.
      * @throws IllegalArgumentException
-     *             if <code>method</code> is not a member of <code>object</code>.
+     *             if <code>method</code> is not a member of
+     *             <code>object</code>.
      */
     public ListenerMethod(Class<?> eventType,
             SerializableEventListener listener, Method method)

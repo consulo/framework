@@ -179,7 +179,7 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
     };
 
     /**
-     * The default start year (inclusive) from which to calculate the 
+     * The default start year (inclusive) from which to calculate the
      * daylight-saving time zone transition dates.
      */
     private static final int DEFAULT_START_YEAR = 1980;
@@ -323,8 +323,9 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
      * <p>
      * Note: Negative, i.e. BC dates are not supported.
      * <p>
-     * Note: It's usually recommended to use only one of the following at the same
-     * time: Range validator with Binder or DateField's setRangeStart check.
+     * Note: It's usually recommended to use only one of the following at the
+     * same time: Range validator with Binder or DateField's setRangeStart
+     * check.
      *
      * @param startDate
      *            - the allowed range's start date
@@ -387,8 +388,8 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
      * validate. If {@code endDate} is set to {@code null}, any value after
      * {@code startDate} will be accepted by the range.
      * <p>
-     * Note: It's usually recommended to use only one of the following at the same
-     * time: Range validator with Binder or DateField's setRangeEnd check.
+     * Note: It's usually recommended to use only one of the following at the
+     * same time: Range validator with Binder or DateField's setRangeEnd check.
      *
      * @param endDate
      *            the allowed range's end date (inclusive, based on the current
@@ -545,8 +546,8 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
      * inclusive) between which to calculate the daylight-saving time zone
      * transition dates. Both parameters are used when '{@code z}' is included
      * inside the {@link #setDateFormat(String)}, they would have no effect
-     * otherwise. Specifically, these parameters determine the range of years in 
-     * which zone names are are adjusted to show the daylight saving names. 
+     * otherwise. Specifically, these parameters determine the range of years in
+     * which zone names are are adjusted to show the daylight saving names.
      *
      * If no values are provided, by default {@link startYear} is set to
      * {@value #DEFAULT_START_YEAR}, and {@link endYear} is set to
@@ -704,7 +705,7 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
      * @param value
      *            the new value, may be {@code null}
      * @throws IllegalArgumentException
-     *            if the value is not within range bounds
+     *             if the value is not within range bounds
      */
     @Override
     public void setValue(T value) {
@@ -718,15 +719,15 @@ public abstract class AbstractDateField<T extends Temporal & TemporalAdjuster & 
         } else {
             currentErrorMessage = null;
             /*
-             * First handle special case when the client side component has a date
-             * string but value is null (e.g. unparsable date string typed in by the
-             * user). No value changes should happen, but we need to do some
-             * internal housekeeping.
+             * First handle special case when the client side component has a
+             * date string but value is null (e.g. unparsable date string typed
+             * in by the user). No value changes should happen, but we need to
+             * do some internal housekeeping.
              */
             if (value == null && !getState(false).parsable) {
                 /*
-                 * Side-effects of doSetValue clears possible previous strings and
-                 * flags about invalid input.
+                 * Side-effects of doSetValue clears possible previous strings
+                 * and flags about invalid input.
                  */
                 doSetValue(null);
 

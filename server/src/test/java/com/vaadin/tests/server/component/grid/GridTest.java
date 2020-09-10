@@ -587,7 +587,7 @@ public class GridTest {
         assertEquals(2, columns.size());
         assertEquals("born", columns.get(0).getId());
         assertEquals("name", columns.get(1).getId());
-    }    
+    }
 
     @Test
     public void setColumnOrder_byColumn() {

@@ -33,12 +33,14 @@ public class MockVaadinServletService extends VaadinServletService {
     }
 
     public MockVaadinServletService(
-            DeploymentConfiguration deploymentConfiguration) throws ServiceException {
+            DeploymentConfiguration deploymentConfiguration)
+            throws ServiceException {
         this(new VaadinServlet(), deploymentConfiguration);
     }
 
     public MockVaadinServletService(VaadinServlet servlet,
-            DeploymentConfiguration deploymentConfiguration) throws ServiceException {
+            DeploymentConfiguration deploymentConfiguration)
+            throws ServiceException {
         super(servlet, deploymentConfiguration);
 
         try {

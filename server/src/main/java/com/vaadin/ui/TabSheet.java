@@ -851,7 +851,8 @@ public class TabSheet extends AbstractComponentContainer
      * @since 3.0
      */
     @FunctionalInterface
-    public interface SelectedTabChangeListener extends SerializableEventListener {
+    public interface SelectedTabChangeListener
+            extends SerializableEventListener {
 
         /**
          * Selected (shown) tab in tab sheet has has been changed.

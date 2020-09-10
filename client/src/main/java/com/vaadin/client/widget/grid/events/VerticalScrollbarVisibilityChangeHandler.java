@@ -26,8 +26,7 @@ import com.google.gwt.event.shared.GwtEvent;
  *
  * @author Vaadin Ltd
  */
-public interface VerticalScrollbarVisibilityChangeHandler
-        extends EventHandler {
+public interface VerticalScrollbarVisibilityChangeHandler extends EventHandler {
 
     /**
      * FOR INTERNAL USE ONLY, MAY GET REMOVED OR MODIFIED AT ANY TIME!
@@ -38,8 +37,7 @@ public interface VerticalScrollbarVisibilityChangeHandler
      * @param event
      *            the row visibility change event describing the change
      */
-    void onVisibilityChange(
-            VerticalScrollbarVisibilityChangeEvent event);
+    void onVisibilityChange(VerticalScrollbarVisibilityChangeEvent event);
 
     /**
      * FOR INTERNAL USE ONLY, MAY GET REMOVED OR MODIFIED AT ANY TIME!
@@ -49,8 +47,8 @@ public interface VerticalScrollbarVisibilityChangeHandler
      *
      * @author Vaadin Ltd
      */
-    public class VerticalScrollbarVisibilityChangeEvent extends
-            GwtEvent<VerticalScrollbarVisibilityChangeHandler> {
+    public class VerticalScrollbarVisibilityChangeEvent
+            extends GwtEvent<VerticalScrollbarVisibilityChangeHandler> {
         /**
          * FOR INTERNAL USE ONLY, MAY GET REMOVED OR MODIFIED AT ANY TIME!
          * <p>

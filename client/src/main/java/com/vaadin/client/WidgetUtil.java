@@ -1981,7 +1981,8 @@ public class WidgetUtil {
             // Chrome
             textBox.getElement().setAttribute("autocomplete", "off");
         } else {
-        	textBox.getElement().setAttribute("autocomplete", Math.random() + "");
-        }    	
+            textBox.getElement().setAttribute("autocomplete",
+                    Math.random() + "");
+        }
     }
 }

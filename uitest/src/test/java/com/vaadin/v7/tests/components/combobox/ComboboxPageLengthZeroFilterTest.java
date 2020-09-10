@@ -1,4 +1,5 @@
 package com.vaadin.v7.tests.components.combobox;
+
 import java.util.List;
 
 import org.junit.Assert;

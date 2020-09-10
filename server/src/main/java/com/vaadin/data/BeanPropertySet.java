@@ -15,25 +15,21 @@
  */
 package com.vaadin.data;
 
-import java.beans.IntrospectionException;
-import java.beans.PropertyDescriptor;
+import com.vaadin.data.util.BeanUtil;
+import com.vaadin.server.Setter;
+import kava.beans.IntrospectionException;
+import kava.beans.PropertyDescriptor;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import com.vaadin.data.util.BeanUtil;
-import com.vaadin.server.Setter;
 
 /**
  * A {@link PropertySet} that uses reflection to find bean properties.

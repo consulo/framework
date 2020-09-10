@@ -736,7 +736,7 @@ public abstract class AbstractClientConnector
      * For more information on the inheritable event mechanism see the
      * {@link com.vaadin.event com.vaadin.event package documentation}.
      * </p>
-     * 
+     *
      * @deprecated As of 8.12. Use strongly typed
      *             {@link #addListener(String, Class, SerializableEventListener, Method)}
      *             method instead.
@@ -865,7 +865,7 @@ public abstract class AbstractClientConnector
      * For more information on the inheritable event mechanism see the
      * {@link com.vaadin.event com.vaadin.event package documentation}.
      * </p>
-     * 
+     *
      * @deprecated As of 8.12. Use strongly typed
      *             {@link #addListener(Class, SerializableEventListener, Method)}
      *             method instead.
@@ -1000,8 +1000,7 @@ public abstract class AbstractClientConnector
      *            the name of the activation method.
      * @return a registration object for removing the listener
      * @deprecated This method has only been added for ease of migration and
-     *             should be avoided in new code.
-     *             Use
+     *             should be avoided in new code. Use
      *             {@link #addListener(Class, SerializableEventListener, Method)}
      *             or
      *             {@link #addListener(String, Class, SerializableEventListener, Method)}

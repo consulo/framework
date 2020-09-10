@@ -16,6 +16,12 @@
 
 package com.vaadin.util;
 
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinResponse;
+import com.vaadin.server.VaadinService;
+import com.vaadin.server.VaadinSession;
+import com.vaadin.ui.UI;
+
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
@@ -26,12 +32,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinResponse;
-import com.vaadin.server.VaadinService;
-import com.vaadin.server.VaadinSession;
-import com.vaadin.ui.UI;
 
 /**
  * Keeps track of various current instances for the current thread. All the

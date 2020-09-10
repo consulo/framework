@@ -34,12 +34,13 @@ public class TestUploadMIMETypeTest extends MultiBrowserTest {
         assertThat(input.getAttribute("accept"), is(TEST_MIME_TYPE));
         uploadFile();
         waitUntil(driver -> getSubmitButton().isEnabled());
-        //Previous element is removed, getting a new one
+        // Previous element is removed, getting a new one
         input = getInput();
         assertThat(
                 String.format("Accept is expected to be %s , but was %s ",
                         TEST_MIME_TYPE, input.getAttribute("accept")),
-                input.getAttribute("accept"), is(TEST_MIME_TYPE));}
+                input.getAttribute("accept"), is(TEST_MIME_TYPE));
+    }
 
     private void uploadFile() throws Exception {
         File tempFile = createTempFile();
@@ -96,10 +97,11 @@ public class TestUploadMIMETypeTest extends MultiBrowserTest {
                             + element.getClass().getName());
         }
     }
+
     @Override
     public List<DesiredCapabilities> getBrowsersToTest() {
         // IE11 throws an `Unhandled Alert Exception`
-        //https://stackoverflow.com/questions/23883071/unhandled-alert-exception-modal-dialog-present-selenium
+        // https://stackoverflow.com/questions/23883071/unhandled-alert-exception-modal-dialog-present-selenium
         return getBrowserCapabilities(Browser.CHROME, Browser.FIREFOX);
     }
 }

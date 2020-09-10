@@ -19,7 +19,8 @@ public class TwinColSelectCtrlATest extends MultiBrowserTest {
 
     @Test
     public void TestSelectionWithCtrlA() {
-        TwinColSelectElement twinColSelectElement = $(TwinColSelectElement.class).first();
+        TwinColSelectElement twinColSelectElement = $(
+                TwinColSelectElement.class).first();
 
         twinColSelectElement.findElement(By.tagName("select"))
                 .sendKeys(Keys.chord(Keys.CONTROL, "a"));

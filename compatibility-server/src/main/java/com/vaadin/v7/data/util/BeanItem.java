@@ -16,21 +16,15 @@
 
 package com.vaadin.v7.data.util;
 
-import java.beans.IntrospectionException;
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.vaadin.data.Binder;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.util.BeanUtil;
 import com.vaadin.v7.data.Property;
+import kava.beans.IntrospectionException;
+import kava.beans.PropertyDescriptor;
+
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * A wrapper class for adding the Item interface to any Java Bean.

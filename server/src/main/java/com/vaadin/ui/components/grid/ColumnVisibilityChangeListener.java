@@ -25,7 +25,8 @@ import com.vaadin.ui.Grid;
  * @since 8.0
  */
 @FunctionalInterface
-public interface ColumnVisibilityChangeListener extends SerializableEventListener {
+public interface ColumnVisibilityChangeListener
+        extends SerializableEventListener {
 
     /**
      * Called when a column has become hidden or unhidden.

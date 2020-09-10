@@ -573,7 +573,7 @@ public class Tree<T> extends Composite
     public Registration addSelectionListener(SelectionListener<T> listener) {
         return treeGrid.addSelectionListener(listener);
     }
-    
+
     /**
      * Use this tree as a multi select in {@link Binder}. Throws
      * {@link IllegalStateException} if the tree is not using

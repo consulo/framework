@@ -599,7 +599,8 @@ public class Window extends Panel implements FocusNotifier, BlurNotifier {
      * {@link WindowMode#MAXIMIZED}) or restored ({@link WindowMode#NORMAL} ).
      */
     @FunctionalInterface
-    public interface WindowModeChangeListener extends SerializableEventListener {
+    public interface WindowModeChangeListener
+            extends SerializableEventListener {
 
         public static final Method windowModeChangeMethod = ReflectTools
                 .findMethod(WindowModeChangeListener.class, "windowModeChanged",

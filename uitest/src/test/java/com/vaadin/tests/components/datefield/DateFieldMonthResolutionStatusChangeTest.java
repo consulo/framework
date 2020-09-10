@@ -9,8 +9,7 @@ import com.vaadin.testbench.elements.ButtonElement;
 import com.vaadin.testbench.elements.DateFieldElement;
 import com.vaadin.tests.tb3.MultiBrowserTest;
 
-public class DateFieldMonthResolutionStatusChangeTest
-        extends MultiBrowserTest {
+public class DateFieldMonthResolutionStatusChangeTest extends MultiBrowserTest {
 
     @Test
     public void testChangeReadOnly() {

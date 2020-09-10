@@ -15,10 +15,9 @@
  */
 package com.vaadin.data;
 
-import java.beans.PropertyDescriptor;
-
 import com.vaadin.shared.util.SharedUtil;
 import com.vaadin.util.ReflectTools;
+import kava.beans.PropertyDescriptor;
 
 /**
  * Abstract base class for PropertyDefinition implementations for beans.

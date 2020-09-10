@@ -47,7 +47,8 @@ public class DateTimeFieldZoneIdFutureSummerDatesTest
 
         transitionsStartYear = $(DateFieldElement.class)
                 .id(START_YEAR_DATEFIELD_ID);
-        transitionsEndYear = $(DateFieldElement.class).id(END_YEAR_DATEFIELD_ID);
+        transitionsEndYear = $(DateFieldElement.class)
+                .id(END_YEAR_DATEFIELD_ID);
 
         zoneIdComboBox = $(ComboBoxElement.class).id(ZONE_ID);
         zoneIdComboBox.selectByText(TESTING_ZONE_ID);

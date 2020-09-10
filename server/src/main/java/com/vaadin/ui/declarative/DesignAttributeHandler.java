@@ -15,35 +15,30 @@
  */
 package com.vaadin.ui.declarative;
 
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.io.Serializable;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.jsoup.nodes.Attribute;
-import org.jsoup.nodes.Attributes;
-import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-
 import com.googlecode.gentyref.GenericTypeReflector;
 import com.vaadin.data.Converter;
 import com.vaadin.data.ValueContext;
 import com.vaadin.shared.ui.AlignmentInfo;
 import com.vaadin.shared.util.SharedUtil;
 import com.vaadin.ui.Alignment;
+import kava.beans.BeanInfo;
+import kava.beans.IntrospectionException;
+import kava.beans.Introspector;
+import kava.beans.PropertyDescriptor;
+import org.jsoup.nodes.Attribute;
+import org.jsoup.nodes.Attributes;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+
+import java.io.Serializable;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Default attribute handler implementation used when parsing designs to

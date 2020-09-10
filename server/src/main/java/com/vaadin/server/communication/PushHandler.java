@@ -332,7 +332,7 @@ public class PushHandler {
         }
     }
 
-    private VaadinSession handleConnectionLost(AtmosphereResourceEvent event) {    
+    private VaadinSession handleConnectionLost(AtmosphereResourceEvent event) {
         // We don't want to use callWithUi here, as it assumes there's a client
         // request active and does requestStart and requestEnd among other
         // things.
@@ -443,7 +443,7 @@ public class PushHandler {
                 // can't call ErrorHandler, we (hopefully) don't have a lock
             }
         }
-        return session; 
+        return session;
     }
 
     private static UI findUiUsingResource(AtmosphereResource resource,

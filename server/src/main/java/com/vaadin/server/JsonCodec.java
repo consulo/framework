@@ -16,30 +16,6 @@
 
 package com.vaadin.server;
 
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.GenericArrayType;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 import com.vaadin.server.communication.DateSerializer;
 import com.vaadin.server.communication.JSONSerializer;
 import com.vaadin.shared.Connector;
@@ -48,16 +24,18 @@ import com.vaadin.shared.communication.UidlValue;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.ConnectorTracker;
 import com.vaadin.util.ReflectTools;
-
-import elemental.json.Json;
-import elemental.json.JsonArray;
-import elemental.json.JsonException;
-import elemental.json.JsonNull;
-import elemental.json.JsonObject;
-import elemental.json.JsonString;
-import elemental.json.JsonType;
-import elemental.json.JsonValue;
+import elemental.json.*;
 import elemental.json.impl.JreJsonArray;
+import kava.beans.IntrospectionException;
+import kava.beans.Introspector;
+import kava.beans.PropertyDescriptor;
+
+import java.io.Serializable;
+import java.lang.reflect.*;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Decoder for converting RPC parameters and other values from JSON in transfer

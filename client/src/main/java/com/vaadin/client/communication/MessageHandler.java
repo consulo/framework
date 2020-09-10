@@ -262,8 +262,8 @@ public class MessageHandler {
         boolean hasResynchronize = isResynchronize(json);
 
         if (!hasResynchronize && resyncInProgress) {
-            Logger.getLogger(MessageHandler.class.getName())
-                .warning("Dropping the response of a request before a resync request.");
+            Logger.getLogger(MessageHandler.class.getName()).warning(
+                    "Dropping the response of a request before a resync request.");
             return;
         }
 

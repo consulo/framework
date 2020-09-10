@@ -1,17 +1,16 @@
 package com.vaadin.tests.design;
 
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.junit.Assert;
-
 import com.vaadin.shared.Connector;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Flash;
+import kava.beans.BeanInfo;
+import kava.beans.Introspector;
+import kava.beans.PropertyDescriptor;
+import org.junit.Assert;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class DeclarativeTestBase<T extends Component>
         extends DeclarativeTestBaseBase<T> {

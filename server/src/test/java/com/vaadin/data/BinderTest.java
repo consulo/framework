@@ -272,15 +272,13 @@ public class BinderTest extends BinderTestBase<Binder<Person>, Person> {
     @Test
     public void save_bound_beanAsDraft() {
         Binder<Person> binder = new Binder<>();
-        binder.forField(nameField)
-            .withValidator((value,context) -> {
-                if (value.equals("Mike")) {
-                    return ValidationResult.ok();
-                } else {
-                    return ValidationResult.error("value must be Mike");
-                }
-            })
-            .bind(Person::getFirstName, Person::setFirstName);
+        binder.forField(nameField).withValidator((value, context) -> {
+            if (value.equals("Mike")) {
+                return ValidationResult.ok();
+            } else {
+                return ValidationResult.error("value must be Mike");
+            }
+        }).bind(Person::getFirstName, Person::setFirstName);
         binder.forField(ageField)
                 .withConverter(new StringToIntegerConverter(""))
                 .bind(Person::getAge, Person::setAge);
@@ -304,23 +302,23 @@ public class BinderTest extends BinderTestBase<Binder<Person>, Person> {
         // fails
         assertEquals(age, person.getAge());
 
-        binder.writeBeanAsDraft(person,true);
+        binder.writeBeanAsDraft(person, true);
         // name is now written despite validation as write was forced
         assertEquals(fieldValue, person.getFirstName());
     }
 
     @Test
-    public void save_bound_bean_disable_validation_binding() throws ValidationException {
+    public void save_bound_bean_disable_validation_binding()
+            throws ValidationException {
         Binder<Person> binder = new Binder<>();
         Binding<Person, String> nameBinding = binder.forField(nameField)
-            .withValidator((value,context) -> {
-                if (value.equals("Mike")) {
-                    return ValidationResult.ok();
-                } else {
-                    return ValidationResult.error("value must be Mike");
-                }
-            })
-            .bind(Person::getFirstName, Person::setFirstName);
+                .withValidator((value, context) -> {
+                    if (value.equals("Mike")) {
+                        return ValidationResult.ok();
+                    } else {
+                        return ValidationResult.error("value must be Mike");
+                    }
+                }).bind(Person::getFirstName, Person::setFirstName);
         binder.forField(ageField)
                 .withConverter(new StringToIntegerConverter(""))
                 .bind(Person::getAge, Person::setAge);
@@ -344,17 +342,16 @@ public class BinderTest extends BinderTestBase<Binder<Person>, Person> {
     }
 
     @Test
-    public void save_bound_bean_disable_validation_binder() throws ValidationException {
+    public void save_bound_bean_disable_validation_binder()
+            throws ValidationException {
         Binder<Person> binder = new Binder<>();
-        binder.forField(nameField)
-            .withValidator((value,context) -> {
-                if (value.equals("Mike")) {
-                    return ValidationResult.ok();
-                } else {
-                    return ValidationResult.error("value must be Mike");
-                }
-            })
-            .bind(Person::getFirstName, Person::setFirstName);
+        binder.forField(nameField).withValidator((value, context) -> {
+            if (value.equals("Mike")) {
+                return ValidationResult.ok();
+            } else {
+                return ValidationResult.error("value must be Mike");
+            }
+        }).bind(Person::getFirstName, Person::setFirstName);
         binder.forField(ageField)
                 .withConverter(new StringToIntegerConverter(""))
                 .bind(Person::getAge, Person::setAge);
@@ -548,13 +545,15 @@ public class BinderTest extends BinderTestBase<Binder<Person>, Person> {
         TextField textField = new TextField();
         assertFalse(textField.isRequiredIndicatorVisible());
 
-        BindingBuilder<Person, String> bindingBuilder = binder.forField(textField);
+        BindingBuilder<Person, String> bindingBuilder = binder
+                .forField(textField);
         assertFalse(textField.isRequiredIndicatorVisible());
 
         bindingBuilder.asRequired("foobar");
         assertTrue(textField.isRequiredIndicatorVisible());
 
-        Binding<Person, String> binding = bindingBuilder.bind(Person::getFirstName, Person::setFirstName);
+        Binding<Person, String> binding = bindingBuilder
+                .bind(Person::getFirstName, Person::setFirstName);
         binder.setBean(item);
         assertNull(textField.getErrorMessage());
 
@@ -1424,7 +1423,6 @@ public class BinderTest extends BinderTestBase<Binder<Person>, Person> {
 
         binder.readBean(new AtomicReference<>());
     }
-
 
     @Test
     public void nullRejetingField_otherRejectedValue_originalExceptionIsThrown() {
