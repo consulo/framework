@@ -8,7 +8,7 @@
         <version>8.12-SNAPSHOT</version>
     </parent>
     <!-- Needed by a plugin in release build -->
-    <groupId>com.vaadin</groupId>
+    <groupId>consulo.internal.vaadin</groupId>
     <artifactId>vaadin-client-compiled</artifactId>
     <name>vaadin-client-compiled</name>
     <packaging>jar</packaging>
@@ -64,7 +64,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.vaadin</groupId>
+                <groupId>consulo.internal.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <configuration>
                     <modules>

@@ -7,6 +7,7 @@
         <artifactId>vaadin-root</artifactId>
         <version>8.12-SNAPSHOT</version>
     </parent>
+    <groupId>consulo.internal.vaadin</groupId>
     <artifactId>vaadin-themes</artifactId>
     <name>vaadin-themes</name>
     <packaging>jar</packaging>
@@ -71,7 +72,7 @@
                         </goals>
                         <!-- Vaadin Icons font files and .scss to included with Valo -->
                         <configuration>
-                            <includeGroupIds>com.vaadin</includeGroupIds>
+                            <includeGroupIds>${project.groupId}</includeGroupIds>
                             <includeArtifactIds>vaadin-icons</includeArtifactIds>
                             <excludeTransitive>true</excludeTransitive>
                             <includes>VAADIN/addons/vaadin-icons/fonts/*</includes>
@@ -133,7 +134,7 @@
 
 
             <plugin>
-                <groupId>com.vaadin</groupId>
+                <groupId>consulo.internal.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <configuration>
                     <compressTheme>true</compressTheme>

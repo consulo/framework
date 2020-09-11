@@ -7,6 +7,7 @@
         <artifactId>vaadin-root</artifactId>
         <version>8.12-SNAPSHOT</version>
     </parent>
+    <groupId>consulo.internal.vaadin</groupId>
     <artifactId>vaadin-liferay</artifactId>
     <name>vaadin-liferay</name>
     <packaging>pom</packaging>
@@ -59,20 +60,20 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.vaadin</groupId>
+                                    <groupId>${project.groupId}</groupId>
                                     <artifactId>vaadin-push</artifactId>
                                     <includes>VAADIN/vaadinPush.js,
                                         VAADIN/vaadinPush.debug.js</includes>
                                 </artifactItem>
 
                                 <artifactItem>
-                                    <groupId>com.vaadin</groupId>
+                                    <groupId>${project.groupId}</groupId>
                                     <artifactId>vaadin-client-compiled</artifactId>
                                     <includes>VAADIN/widgetsets/**/*</includes>
                                 </artifactItem>
 
                                 <artifactItem>
-                                    <groupId>com.vaadin</groupId>
+                                    <groupId>${project.groupId}</groupId>
                                     <artifactId>vaadin-themes</artifactId>
                                     <includes>
                                         VAADIN/themes/base/**,
@@ -82,7 +83,7 @@
                                     </includes>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>com.vaadin</groupId>
+                                    <groupId>${project.groupId}</groupId>
                                     <artifactId>vaadin-server</artifactId>
                                     <includes>VAADIN/vaadinBootstrap.js</includes>
                                 </artifactItem>

@@ -26,8 +26,8 @@
         <liferay.portal-service.version>6.2.5</liferay.portal-service.version>
         <liferay.portal-kernel.version>2.0.0</liferay.portal-kernel.version>
 
-        <vaadin.gwt.version>2.8.2</vaadin.gwt.version>
-        <vaadin.plugin.version>8.7-SNAPSHOT</vaadin.plugin.version>
+        <vaadin.gwt.version>2.9.0</vaadin.gwt.version>
+        <vaadin.plugin.version>8.1-SNAPSHOT</vaadin.plugin.version>
 
         <!-- Used in OSGi manifests -->
         <javax.validation.version>2.0.1.Final</javax.validation.version>
@@ -76,6 +76,14 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>consulo</id>
+            <url>https://maven.consulo.io/repository/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
@@ -462,7 +470,7 @@
                     <version>3.0.1</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.vaadin</groupId>
+                    <groupId>consulo.internal.vaadin</groupId>
                     <artifactId>vaadin-maven-plugin</artifactId>
                     <version>${vaadin.plugin.version}</version>
                 </plugin>

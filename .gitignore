@@ -61,6 +61,8 @@ phantomjsdriver.log
 *.iml
 .idea
 
+.consulo
+
 */.checkstyle
 
 # TB default error screenshot folder

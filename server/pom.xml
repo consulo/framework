@@ -7,6 +7,7 @@
         <artifactId>vaadin-root</artifactId>
         <version>8.12-SNAPSHOT</version>
     </parent>
+    <groupId>consulo.internal.vaadin</groupId>
     <artifactId>vaadin-server</artifactId>
     <name>vaadin-server</name>
     <packaging>jar</packaging>
@@ -63,7 +64,7 @@
 
         <!-- Sass compiler -->
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.vaadin</groupId>
             <artifactId>vaadin-sass-compiler</artifactId>
         </dependency>
 
@@ -165,7 +166,7 @@
                         </goals>
                         <!-- VaadinIcons.java file -->
                         <configuration>
-                            <includeGroupIds>com.vaadin</includeGroupIds>
+                            <includeGroupIds>${project.groupId}</includeGroupIds>
                             <includeArtifactIds>vaadin-icons</includeArtifactIds>
                             <excludeTransitive>true</excludeTransitive>
                             <includes>com/vaadin/icons/VaadinIcons.java</includes>
