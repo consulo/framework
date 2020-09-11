@@ -43,7 +43,8 @@ public @interface Connect {
     Class<? extends Connector> value() default Connector.class;
 
     /**
-     * @return the server side counterpart for the annotated component connector in string format (without dependency to server core)
+     * @return the server side counterpart for the annotated component connector
+     *         in string format (without dependency to server core)
      */
     String canonicalName() default "";
 
