@@ -27,7 +27,7 @@
         <liferay.portal-kernel.version>2.0.0</liferay.portal-kernel.version>
 
         <vaadin.gwt.version>2.9.0</vaadin.gwt.version>
-        <vaadin.plugin.version>8.1-SNAPSHOT</vaadin.plugin.version>
+        <vaadin.plugin.version>8.12-SNAPSHOT</vaadin.plugin.version>
 
         <!-- Used in OSGi manifests -->
         <javax.validation.version>2.0.1.Final</javax.validation.version>
