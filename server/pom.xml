@@ -19,10 +19,10 @@
         <repository>
         <id>consulo</id>
             <url>https://maven.consulo.io/repository/snapshots/</url>
-            <snapshots>
+            <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-            </snapshots>
+            </releases>
         </repository>
     </repositories>
 
