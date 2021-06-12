@@ -15,6 +15,17 @@
     <url>https://vaadin.com/</url>
     <description>Vaadin server</description>
 
+    <repositories>
+        <repository>
+        <id>consulo</id>
+            <url>https://maven.consulo.io/repository/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- API DEPENDENCIES -->
 
